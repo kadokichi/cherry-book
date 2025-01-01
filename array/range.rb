@@ -23,3 +23,10 @@ puts charge(19)
 sum = 0
 (1..4).each { |n| sum += n}
 puts sum
+
+
+#endless range
+numbers = [10, 20, 30, 40, 50]
+p numbers[2..] #3番目以降の要素を取り出す
+p numbers[..1] #2番目以前の要素を取り出す
+p numbers[nil..nil] #全範囲
