@@ -56,3 +56,40 @@ while true
   puts n
   break if n == 5
 end
+
+
+#大域脱出
+fruits = ["apple", "melon", "orange"]
+numbers = [1, 2, 3]
+catch :done do
+  fruits.shuffle.each do |fruit|
+    numbers.shuffle.each do |number|
+      puts "#{fruit}, #{number}"
+      if fruit == "orange" && number == 3
+        throw :done
+      end
+    end
+  end
+end
+
+
+#next
+numbers = [1, 2, 3, 4, 5]
+numbers.each do |number|
+  next if number.even?
+  puts number
+end
+
+
+#redo 条件を満たすまで何度も繰り返す
+foods = ["ピーマン", "セロリ","トマト"]
+count = 0
+foods.each do |food|
+  print "#{food}は好きですか?"
+  answer = ["はい", "いいえ"].sample
+  puts answer
+
+  count += 1
+  redo if answer != "はい" && count < 2
+  count = 0
+end
